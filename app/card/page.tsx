@@ -19,15 +19,15 @@ export default function StackingCards() {
     });
 
     elements.forEach((card) => {
-      ScrollTrigger.create({
-        trigger: card,
-        start: "center center",
-        end: () => lastCardST.start + 100,
-        pin: true,
-        pinSpacing: false,
-        ease: "none",
-        toggleActions: "restart none none reverse",
-      });
+ScrollTrigger.create({
+  trigger: card,
+  start: "center center",
+  end: () => lastCardST.start + 100,
+  pin: true,
+  pinSpacing: false,
+  toggleActions: "restart none none reverse",
+});
+
     });
 
     return () => ScrollTrigger.getAll().forEach(st => st.kill());
