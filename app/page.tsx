@@ -6,8 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Text from "./text/page";
 import AboutSection from "./about/page";
 import CinematicSection from "./Photo/page";
-import HelmetGallery from "./Memories/page";
+// import HelmetGallery from "./Memories/page";
 import Footer from "./Footer/page";
+import ProfessionalHistory from "./Memories/page";
+// import ProjectsPage from "./projects/[slug]/page";
+import FanGallery from "./FanGallery/page";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -244,7 +247,7 @@ export default function Home() {
       <div className="col-span-8 row-span-10 col-start-3  row-start-4 flex items-center justify-center">
         <div className="w-[400px] h-[350px] relative">
         <h1 className="font-bold text-black opacity-20 text-[10px] mb-2">Never Give Up</h1>
-          <img src="/pic1.jpg" alt="Large" className="w-full h-full object-cover shadow-lg opacity-50" />
+          <img src="/nabhan.jpeg" alt="Large" className="w-full h-full object-cover shadow-lg opacity-50" />
         </div>
       </div>
 
@@ -253,7 +256,7 @@ export default function Home() {
         <div className="w-[200px] h-[200px] relative">
         <h1 className="text-black font-serif opacity-40 text-[10px] mb-2">Joined at -2025</h1>
 
-          <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSypKqIJLChNLoNtMeC_SJXgwpJ5hSDbqi26-wK_BBEmz2HKShtfKQk3nmynVhaaUz5Igf_cfrT63yX8eTDXsDZWk2gID_YjVCVN_5vkAoxLGeeIGkHoue7sr8-NBaa-3mZ1YsP3=s1360-w1360-h1020-rw" alt="" className="w-full h-full object-cover opacity-70" />
+          <img src="bridgeon.jpeg" alt="" className="w-full h-full object-cover opacity-70" />
         </div>
       </div>
 
@@ -345,9 +348,14 @@ export default function Home() {
     </div>
   </section>
 </div>
-        <AboutSection />
         <CinematicSection />
-        <HelmetGallery />
+
+        {/* <HelmetGallery /> */}
+        {/* <HorizontalProjects /> */}
+        <ProfessionalHistory />
+        {/* <ProjectsPage /> */}
+        <FanGallery />
+        <AboutSection />
         <Footer />
     </div>
   );
