@@ -30,7 +30,8 @@ const PROJECTS = [
 
 export default function ProjectsShowcase() {
   const router = useRouter();
-  const rowsRef = useRef<HTMLDivElement[]>([]);
+//   const rowsRef = useRef<HTMLDivElement[]>([]);
+const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
   const headingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function ProjectsShowcase() {
 
     // Rows animation on scroll
     rowsRef.current.forEach((row) => {
+     if (!row) return; 
       const image = row.querySelector("img");
       const text = row.querySelector(".text-block");
 
@@ -113,7 +115,10 @@ export default function ProjectsShowcase() {
           {PROJECTS.map((p, i) => (
             <div
               key={p.id}
-              ref={(el) => el && (rowsRef.current[i] = el)}
+             ref={(el) => {
+  if (el) rowsRef.current[i] = el;
+}}
+
               className="group grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 items-center cursor-pointer"
               onClick={() => router.push(`/projects/${p.slug}`)}
               onMouseEnter={() =>
