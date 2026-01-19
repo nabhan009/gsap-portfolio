@@ -24,14 +24,14 @@ const PROJECTS = [
     img: "/portfolio.png",
     desc: "A cinematic portfolio experience driven by scroll-based animations.",
     tech: ["Next.js", "GSAP", "Tailwind"],
-    live: "https://nabhan-portfolio.vercel.app/",
+    live: "https://nabhan-009.vercel.app/",
   },
 ];
 
 export default function ProjectsShowcase() {
   const router = useRouter();
-//   const rowsRef = useRef<HTMLDivElement[]>([]);
-const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
+  //   const rowsRef = useRef<HTMLDivElement[]>([]);
+  const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
   const headingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     // Rows animation on scroll
     rowsRef.current.forEach((row) => {
-     if (!row) return; 
+      if (!row) return;
       const image = row.querySelector("img");
       const text = row.querySelector(".text-block");
 
@@ -115,10 +115,9 @@ const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
           {PROJECTS.map((p, i) => (
             <div
               key={p.id}
-             ref={(el) => {
-  if (el) rowsRef.current[i] = el;
-}}
-
+              ref={(el) => {
+                if (el) rowsRef.current[i] = el;
+              }}
               className="group grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 items-center cursor-pointer"
               onClick={() => router.push(`/projects/${p.slug}`)}
               onMouseEnter={() =>
@@ -171,9 +170,9 @@ const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
                 </div>
                 <button
                   onClick={(e) => {
-    e.stopPropagation(); // prevents row click navigation
-    window.open(p.live, "_blank");
-  }}
+                    e.stopPropagation(); // prevents row click navigation
+                    window.open(p.live, "_blank");
+                  }}
                   className="cta group relative mt-8 inline-flex items-center gap-3 px-7 py-3 rounded-full
              border border-black/20 overflow-hidden font-medium text-black
              transition-colors duration-300"
